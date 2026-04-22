@@ -1,0 +1,19 @@
+# Hummingbird vehicle parameters  
+mass: 0.700
+inertia: {xx: 0.002507, xy: 0.0, xz: 0, yy: 0.004732, yz: 0, zz: 0.003895}
+
+# angle should be expressed in rad
+# direction 1 means counter clockwise, -1 clockwise
+# The order of the rotors matters for the calculation of the allocation matrix.
+rotor_configuration:
+  '0': {angle: -0.78539815, arm_length: 0.115, rotor_force_constant: 1.2858e-06, rotor_moment_constant: 0.015, direction: 1.0}
+  '1': {angle: 2.35619445, arm_length: 0.115, rotor_force_constant: 1.2858e-06, rotor_moment_constant: 0.015, direction: 1.0}
+  '2': {angle: 0.78539815, arm_length: 0.115, rotor_force_constant: 1.2858e-06, rotor_moment_constant: 0.015, direction: -1.0}
+  '3': {angle: -2.35619445, arm_length: 0.115, rotor_force_constant: 1.2858e-06, rotor_moment_constant: 0.015, direction: -1.0}
+
+# rotor_configuration:
+#   '0': {angle: -0.78539815, arm_length: 0.10041, rotor_force_constant: 8.54858e-06, rotor_moment_constant: 1.6e-2, direction: 1.0}
+#   '1': {angle: 2.35619445, arm_length: 0.10041, rotor_force_constant: 8.54858e-06, rotor_moment_constant: 1.6e-2, direction: 1.0}
+#   '2': {angle: 0.78539815, arm_length: 0.10041, rotor_force_constant: 8.54858e-06, rotor_moment_constant: 1.6e-2, direction: -1.0}
+#   '3': {angle: -2.35619445, arm_length: 0.10041, rotor_force_constant: 8.54858e-06, rotor_moment_constant: 1.6e-2, direction: -1.0}
+  

@@ -1,0 +1,39 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ruibin/ws_mpc/TABV_body_rate/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/bspline_opt/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/ball_detect/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/drone_detect/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/plan_manage/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/utilities/mav_msgs/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/path_searching/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/plan_env/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/utilities/pose_utils/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rpg_quadrotor_common/quadrotor_common/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/utilities/quadrotor_msgs/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rotors_simulator/rotors_control/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rotors_simulator/rotors_gazebo_plugins/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rotors_simulator/rotors_hil_interface/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rotors_simulator/rotors_joy_interface/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rpg_mpc/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/rpg_quadrotor_common/state_predictor/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/planning_src/planner/traj_utils/include/**",
+        "/home/ruibin/ws_mpc/TABV_body_rate/src/utilities/uav_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
