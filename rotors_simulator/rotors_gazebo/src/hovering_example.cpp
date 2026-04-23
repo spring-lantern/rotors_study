@@ -220,7 +220,8 @@ int main(int argc, char** argv){
   odom_sub = nh.subscribe("/TABV/ground_truth/odometry", 1, odometryCallback, ros::TransportHints().tcpNoDelay());
   traj_start_trigger_sub = nh.subscribe("/move_base_simple/goal", 1, goalCallback, ros::TransportHints().tcpNoDelay());
   ROS_INFO("Started hovering example.");
-
+  
+  //zyq_study自动解除Gazebo仿真暂停
   std_srvs::Empty srv;
   bool unpaused = ros::service::call("/gazebo/unpause_physics", srv);
   unsigned int i = 0;

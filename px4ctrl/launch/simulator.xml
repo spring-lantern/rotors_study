@@ -1,0 +1,40 @@
+<launch>
+
+    <arg name="use_joy"/>
+    <arg name="use_sim"/>
+    <arg name="cmd_topic"/>
+    <arg name="odom_topic"/>
+    <arg name="imu_topic"/>
+    <arg name="mesh_topic"/>
+    <arg name="state_topic"/>
+    <arg name="set_mode_server"/>
+    <arg name="rc_topic"/>
+    <arg name="rpm_topic"/>
+
+    <rosparam command="load" file="$(find fake_mod)/params/simulator.yaml" />
+
+    <node pkg="fake_mod" type="fake_mod_node" name="fake_mod_node" output="screen" required="true">
+      <remap from ="~odom" to="$(arg odom_topic)"/>
+      <remap from ="~imu" to="$(arg imu_topic)"/>
+      <remap from ="~cmd" to="$(arg cmd_topic)"/>
+      <remap from ="~mesh" to="$(arg mesh_topic)"/>
+      <remap from ="~state" to="$(arg state_topic)"/>
+      <remap from ="~rpm" to="$(arg rpm_topic)"/>
+      <remap from ="~set_mode" to="$(arg set_mode_server)"/>
+    </node>
+    
+    <group if="$(arg use_joy)">
+      <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev"             value="/dev/input/js0"/>
+        <param name="autorepeat_rate" value="10"/>
+      </node>
+    </group>
+
+    <node pkg="fake_rc" type="fake_rc_node" name="fake_rc_node" output="screen">
+      <param name="fake_rc/zero_tolerance"  value="0.05"/>
+      <param name="fake_rc/use_joy"  value="$(arg use_joy)"/>
+      <param name="fake_rc/use_sim"  value="$(arg use_sim)"/>
+      <remap from ="rcin" to="$(arg rc_topic)"/>
+    </node>
+    
+</launch>

@@ -1,0 +1,55 @@
+<launch>
+
+	<!-- ljx -->
+	<arg name="cmd_topic" value="/mavros/setpoint_raw/attitude" />
+	<arg name="odom_topic" value="/ekf/ekf_odom" />
+	<arg name="imu_raw_topic" value="/mavros/imu/data" />
+	<arg name="imu_topic" value="/ekf/acc_filtered" />
+	<arg name="mesh_topic" value="/mod/mesh" />
+	<arg name="state_topic" value="/mavros/state" />
+	<arg name="rpm_topic" value="/mavros/esc_telemetry" />
+	<arg name="set_mode_server" value="/mavros/set_mode" />
+	<arg name="rc_topic" value="/mavros/rc/in" />
+	<arg name="use_sim" default="true" />
+	<arg name="use_joy" default="false" />
+	<arg name="imu_topic_simu" value="/TABV/imu" />
+	<arg name="cmd_topic_simu" value="/TABV/command/motor_speed" />
+	<arg name="odom_topic_simu" value="/TABV/odometry_sensor1/odometry" />
+	<arg name="rpm_topic_simu" value="/TABV/motor_speed" />
+
+	<node pkg="px4ctrl" type="px4ctrl_node" name="px4ctrl" output="screen">
+        <!-- <remap from="~odom" to="/vicon_imu_ekf_odom" /> -->
+		<remap from="~cmd" to="/position_cmd" />
+		<!-- ljx -->
+		<remap from="~odom" to="$(arg odom_topic)"/>
+		<remap from="~imu" to="$(arg imu_topic)"/>
+		<remap from="~imu_raw" to="$(arg imu_raw_topic)"/>
+		<!-- <remap from="~traj" to="$(arg traj_topic)"/> -->
+		<remap from="~cmd_sim" to="$(arg cmd_topic_simu)"/>
+		<remap from="~odom_sim" to="$(arg odom_topic_simu)"/>
+		<remap from="~imu_sim" to="$(arg imu_topic_simu)"/>
+		<remap from="~rpm_sim" to="$(arg rpm_topic_simu)"/>
+
+        <rosparam command="load" file="$(find px4ctrl)/config/ctrl_param_fpv.yaml" />
+	</node>
+ 
+	<!-- use simulator ljx -->
+	<group if="$(arg use_sim)">
+		<include file="$(find px4ctrl)/launch/simulator.xml">
+
+			<arg name="use_joy" value="$(arg use_joy)" />
+			<arg name="use_sim" value="$(arg use_sim)" />
+			<arg name="cmd_topic" value="$(arg cmd_topic)" />
+			<arg name="odom_topic" value="$(arg odom_topic)" />
+			<arg name="imu_topic" value="$(arg imu_topic)" />
+			<arg name="mesh_topic" value="$(arg mesh_topic)" />
+			<arg name="state_topic" value="$(arg state_topic)" />
+			<arg name="rpm_topic" value="$(arg rpm_topic)" />
+			<arg name="set_mode_server" value="$(arg set_mode_server)" />
+			<arg name="rc_topic" value="$(arg rc_topic)" />
+
+		</include>
+	</group>
+
+
+</launch>
