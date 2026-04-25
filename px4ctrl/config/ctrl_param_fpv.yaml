@@ -18,9 +18,9 @@ min_thrust: 0.1
 max_thrust: 12.5
 
 rc_reverse: # *
-    roll: false
+    roll: true
     pitch: false
-    yaw: false
+    yaw: true
     throttle: false
 
 auto_takeoff_land:

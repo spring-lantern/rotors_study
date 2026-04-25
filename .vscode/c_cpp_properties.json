@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "name": "ROS",
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/sl/zyq_ws2/devel/include/**",
+        "/home/sl/zyq_ws2/src/**",
+        "/usr/include/**"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
